@@ -1,0 +1,21 @@
+.title {
+  color: var(--accent);
+  text-shadow: 1px 1px 4px #1a1a1a;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.score-panel {
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__score {
+    font-size: 4rem;
+  }
+}

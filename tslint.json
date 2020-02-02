@@ -12,13 +12,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "bftg",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "bftg",
       "kebab-case"
     ],
     "import-blacklist": [
