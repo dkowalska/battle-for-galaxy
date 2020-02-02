@@ -1,4 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --dark-gray: #303030;
+  --primary: #7b1fa2;
+  --accent: #69f0ae;
+  --warn: #f44336;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--dark-gray);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container--full-height {
+  height: 100%;
+}
+
+.pr15 {
+  padding-right: 15rem;
+}
+
+.pl15 {
+  padding-left: 15rem;
+}
+
+.mb05 {
+  margin-bottom: 1rem;
+}
+
+.mr1 {
+  margin-right: 1rem;
+}
+
+.ml1 {
+  margin-left: 1rem;
+}

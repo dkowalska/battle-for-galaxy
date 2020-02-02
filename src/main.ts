@@ -10,4 +10,5 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule)
+  .then(() => console.log('Welcome to Battle for the Galaxy, may the force be with you.'))
   .catch(err => console.error(err));

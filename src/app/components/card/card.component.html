@@ -1,0 +1,44 @@
+<div class="container container--full-height">
+  <div fxFlex="grow"
+       fxLayout="column"
+       fxLayoutAlign="center">
+    <mat-card class="card"
+              [ngClass]="winningCard ? 'card--success' : 'card--failure'"
+              [ngStyle.lt-md]="{'margin-bottom.rem': 0, 'margin-left.rem': 1, 'margin-top.rem': 1, 'margin-right.rem': 1}">
+      <div *ngIf="!showCardContent; else start"
+           fxFlex="grow">
+        <div *ngIf="!roundInProgress; else loading">
+          <mat-card-header>
+            <mat-card-title class="card__title">Luke Skywalker</mat-card-title>
+            <mat-card-subtitle>cardType</mat-card-subtitle>
+          </mat-card-header>
+          <mat-divider></mat-divider>
+          <mat-card-content class="card__content">
+            <p [ngClass]="winningCard ? 'card__text--success' : 'card__text--failure'">
+              comparedAttribute: value
+            </p>
+            <ul class="card__list" fxHide.lt-md="true">
+              <li>key: value</li>
+              <li>key: value</li>
+              <li>key: value</li>
+            </ul>
+          </mat-card-content>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div fxFlex
+       fxLayoutAlign="center center">
+    <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #start>
+  <div fxFlex
+       fxLayoutAlign="center center">
+    <div class="card__content--unknown">?</div>
+  </div>
+</ng-template>
