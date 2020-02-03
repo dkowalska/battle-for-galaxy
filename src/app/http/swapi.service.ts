@@ -6,7 +6,7 @@ import {getRandomNumberInRange} from '../util/random-number';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {LoggerService} from '../services/logger.service';
 import {AlertService} from '../services/alert.service';
-import {CardsMapper} from '../models/cards.mapper';
+import {CardsMapper} from '../models/mappers/cards.mapper';
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import {SwapiService} from './swapi.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {CardsMapper} from '../models/cards.mapper';
+import {CardsMapper} from '../models/mappers/cards.mapper';
 import {CardsMapperStub} from '../../test/stubs/cards.mapper.stub';
 import {AlertService} from '../services/alert.service';
 import {LoggerService} from '../services/logger.service';

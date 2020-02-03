@@ -1,8 +1,8 @@
-import {Starship} from './starship.model';
-import {Person} from './person.model';
+import {Starship} from '../starship.model';
+import {Person} from '../person.model';
 import {Injectable} from '@angular/core';
-import {getRandomNumberInRange} from '../util/random-number';
-import {Card} from './card.model';
+import {getRandomNumberInRange} from '../../util/random-number';
+import {Card} from '../card.model';
 
 @Injectable({
   providedIn: 'root'
