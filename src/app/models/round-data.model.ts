@@ -1,5 +1,5 @@
-import {Result} from './result';
 import {Card} from './card.model';
+import {Result} from './enums/result.enum';
 
 export class RoundData {
   cards: Card[];
