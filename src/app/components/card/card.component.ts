@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Card} from '../../models/card.model';
 import {RoundService} from '../../services/round.service';
 import {Round} from '../../models/round.model';
@@ -10,7 +10,7 @@ import {Result} from '../../models/enums/result.enum';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
   @Input() playerNumber: number;
   showCardContent: boolean;
   roundInProgress: boolean;
@@ -21,11 +21,14 @@ export class CardComponent {
 
   constructor(private roundService: RoundService) {
     this.initializeCardData();
-    this.roundService.getRound().subscribe((round) => this.updateCardData(round));
   }
 
   private static isWinningCard(result: Result) {
     return result !== Result.LOSS;
+  }
+
+  ngOnInit(): void {
+    this.roundService.getRound().subscribe((round) => this.updateCardData(round));
   }
 
   getCardContentKeys(): string[] {
@@ -57,7 +60,7 @@ export class CardComponent {
   private initializeCardData() {
     this.showCardContent = false;
     this.roundInProgress = false;
-    this.winningCard = null;
+    this.winningCard = false;
     this.cardContent = null;
     this.cardType = null;
     this.comparedAttribute = null;

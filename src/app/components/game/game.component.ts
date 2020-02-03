@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Result} from '../../models/enums/result.enum';
 import {Status} from '../../models/enums/status.enum';
 import {Round} from '../../models/round.model';
@@ -11,7 +11,7 @@ import {GameService} from '../../services/game.service';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
-export class GameComponent {
+export class GameComponent implements OnInit {
   cardTypes: string[];
   selectedCardType: string;
   score: number[];
@@ -23,6 +23,9 @@ export class GameComponent {
     private cardsMapper: CardsMapper
   ) {
     this.initializeGameData();
+  }
+
+  ngOnInit(): void {
     this.roundService.getRound().subscribe((round) => this.updateGameData(round));
   }
 

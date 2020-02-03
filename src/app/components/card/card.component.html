@@ -3,7 +3,7 @@
        fxLayout="column"
        fxLayoutAlign="center">
     <mat-card class="card"
-              [ngClass]="(showCardContent && cardContent) ? (winningCard ? 'card--success' : 'card--failure') : ''"
+              [ngClass]="(showCardContent && cardContent && !roundInProgress) ? (winningCard ? 'card--success' : 'card--failure') : ''"
               [ngStyle.lt-md]="{'margin-bottom.rem': 0, 'margin-left.rem': 1, 'margin-top.rem': 1, 'margin-right.rem': 1}">
       <div *ngIf="showCardContent; else start"
            fxFlex="grow">

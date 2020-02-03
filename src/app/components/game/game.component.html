@@ -13,7 +13,7 @@
          fxLayout="row"
          fxLayout.lt-md="column"
          fxLayoutGap="10px"
-         fxLayoutGap.lt-md="0">
+         fxLayoutGap.lt-md="5px">
       <div fxFlex="40%" fxFlex.lt-md="27%"><bftg-card playerNumber="1"></bftg-card></div>
       <div fxFlex="40%" fxFlex.lt-md="27%" fxFlexOrder="3" fxFlexOrder.lt-md="2"><bftg-card playerNumber="2"></bftg-card></div>
       <div fxFlexOrder="2"
@@ -34,8 +34,8 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-        <button (click)="resetGame()" mat-raised-button color="accent" [ngStyle]="{'margin-bottom.rem': 0.5}" [disabled]="roundInProgress">RESET GAME</button>
-        <button (click)="playRound()" mat-raised-button color="accent" [disabled]="roundInProgress">PLAY ROUND</button>
+        <button (click)="resetGame()" mat-raised-button color="accent" [ngStyle]="{'margin-bottom.rem': 0.5}" [disabled]="roundInProgress" class="control-panel__button--reset-game">RESET GAME</button>
+        <button (click)="playRound()" mat-raised-button color="accent" [disabled]="roundInProgress" class="control-panel__button--play-round">PLAY ROUND</button>
       </div>
     </div>
   </div>
