@@ -1,5 +1,4 @@
 import {TestBed} from '@angular/core/testing';
-
 import {GameService} from './game.service';
 import {CardsMapper} from '../models/mappers/cards.mapper';
 import {CardsMapperStub} from '../../test/stubs/cards.mapper.stub';
@@ -11,8 +10,6 @@ import {of} from 'rxjs';
 import {StarshipsFactory} from '../../test/starships.factory';
 import {RoundData} from '../models/round-data.model';
 import {Result} from '../models/enums/result.enum';
-import {Round} from '../models/round.model';
-import {Status} from '../models/enums/status.enum';
 
 describe('GameService', () => {
   let service: GameService;
