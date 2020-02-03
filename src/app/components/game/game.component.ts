@@ -9,12 +9,9 @@ import {SwapiService} from '../../http/swapi.service';
 export class GameComponent implements OnInit {
   roundInProgress = false;
 
-  constructor(private swapiService: SwapiService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.swapiService.getTwoRandomCardsOfType('starships').subscribe(
-      (result) => console.log(result)
-    );
   }
 
   resetGame() {

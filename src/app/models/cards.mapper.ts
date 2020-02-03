@@ -24,15 +24,22 @@ export class CardsMapper {
   }
 
   getRandomComparableForType(type: string): string {
-    const randomIndex = getRandomNumberInRange(0, this.cardsMap[type].comparableAttributes.length);
-    return this.cardsMap[type].comparableAttributes[randomIndex];
+    if (this.getAllCardTypes().includes(type)) {
+      const randomIndex = getRandomNumberInRange(0, this.cardsMap[type].comparableAttributes.length);
+      return this.cardsMap[type].comparableAttributes[randomIndex];
+    }
+    return null;
   }
 
+
   getRandomCardType(): string {
-    return this.getAllCardTypes()[getRandomNumberInRange(0, Object.keys(this.cardsMap).length - 1)];
+    return this.getAllCardTypes()[getRandomNumberInRange(0, Object.keys(this.cardsMap).length)];
   }
 
   mapCardTypeToModel(type: string): Card {
-    return new this.cardsMap[type].cardModel();
+    if (this.getAllCardTypes().includes(type)) {
+      return new this.cardsMap[type].cardModel();
+    }
+    return null;
   }
 }

@@ -7,7 +7,7 @@ export class Starship extends Card {
   manufacturer: string;
   costInCredits: number;
   length: number;
-  maxAtmospheringSpeed: number;
+  maxAtmospheringSpeed: string;
   crew: number;
   passengers: number;
   cargoCapacity: number;
@@ -24,7 +24,7 @@ export class Starship extends Card {
       this.manufacturer = input.manufacturer;
       this.costInCredits = toNumberOrZero(input.cost_in_credits);
       this.length = toNumberOrZero(input.length);
-      this.maxAtmospheringSpeed = toNumberOrZero(input.max_atmosphering_speed);
+      this.maxAtmospheringSpeed = input.max_atmospheric_speed;
       this.crew = toNumberOrZero(input.crew);
       this.passengers = toNumberOrZero(input.passengers);
       this.cargoCapacity = toNumberOrZero(input.cargo_capacity);

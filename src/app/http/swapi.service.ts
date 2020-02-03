@@ -20,7 +20,7 @@ export class SwapiService {
   ) { }
 
   private static getRandomCardFromResponse(response): any {
-    return response.results[getRandomNumberInRange(0, response.results.length - 1)];
+    return response.results[getRandomNumberInRange(0, response.results.length)];
   }
 
   getTwoRandomCardsOfType(cardType: string): Observable<Card[]> {
@@ -45,7 +45,7 @@ export class SwapiService {
   }
 
   private getRandomCardOfType(cardType: string, nbOfPages: number): Observable<Card> {
-    return this.http.get(`${this.apiUrl}/${cardType}/?page=${getRandomNumberInRange(1, nbOfPages)}`)
+    return this.http.get(`${this.apiUrl}/${cardType}/?page=${getRandomNumberInRange(1, nbOfPages + 1)}`)
       .pipe(
         map(response => {
           if (!response || !response['results']) {

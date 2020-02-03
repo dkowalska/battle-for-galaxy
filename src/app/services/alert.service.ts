@@ -7,7 +7,7 @@ export class AlertService {
 
   constructor() { }
 
-  static displayGenericAlert() {
+  static displayGenericAlert(): void {
     alert('Something went wrong, please try again.');
   }
 }

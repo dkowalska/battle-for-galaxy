@@ -1,8 +1,10 @@
 import {TestBed} from '@angular/core/testing';
-import { SwapiService } from './swapi.service';
+import {SwapiService} from './swapi.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {CardsMapper} from '../models/cards.mapper';
 import {CardsMapperStub} from '../../test/stubs/cards.mapper.stub';
+import {AlertService} from '../services/alert.service';
+import {LoggerService} from '../services/logger.service';
 
 describe('SwapiService', () => {
   const CARD_TYPE = 'starships';
@@ -33,7 +35,8 @@ describe('SwapiService', () => {
       // TO DO
     });
 
-    it('should return null if first response from api is an error', (done) => {
+    it('should return null if first response from api is an error', (done: DoneFn) => {
+      stubAlertingAndLogger();
       service.getTwoRandomCardsOfType(CARD_TYPE).subscribe((data) => {
         expect(data).toEqual(null);
         done();
@@ -45,7 +48,8 @@ describe('SwapiService', () => {
       httpMock.verify();
     });
 
-    it('should return null if first response from api is empty', (done) => {
+    it('should return null if first response from api is empty', (done: DoneFn) => {
+      stubAlertingAndLogger();
       service.getTwoRandomCardsOfType(CARD_TYPE).subscribe((data) => {
         expect(data).toEqual(null);
         done();
@@ -54,7 +58,8 @@ describe('SwapiService', () => {
       checkRequestAndStubResponse(API_STARSHIPS_URL, null);
     });
 
-    it('should return null if first response from api has no count', (done) => {
+    it('should return null if first response from api has no count', (done: DoneFn) => {
+      stubAlertingAndLogger();
       service.getTwoRandomCardsOfType(CARD_TYPE).subscribe((data) => {
         expect(data).toEqual(null);
         done();
@@ -63,6 +68,11 @@ describe('SwapiService', () => {
       checkRequestAndStubResponse(API_STARSHIPS_URL, {});
     });
   });
+
+  function stubAlertingAndLogger() {
+    spyOn(AlertService, 'displayGenericAlert').and.callFake(() => {});
+    spyOn(LoggerService, 'logError').and.callFake(() => {});
+  }
 
   function checkRequestAndStubResponse(uri: string, mockBody: any) {
     const mockRequest = httpMock.expectOne(uri);
