@@ -1,6 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardComponent } from './card.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {
+  MatCardModule,
+  MatDividerModule,
+  MatProgressSpinnerModule,
+} from '@angular/material';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -8,7 +16,15 @@ describe('CardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardComponent ]
+      declarations: [ CardComponent ],
+      imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        MatCardModule,
+        MatProgressSpinnerModule,
+        MatDividerModule
+      ]
     })
     .compileComponents();
   }));
