@@ -3,6 +3,10 @@ import {Person} from '../person.model';
 import {Injectable} from '@angular/core';
 import {getRandomNumberInRange} from '../../util/random-number';
 import {Card} from '../card.model';
+import {Planet} from '../planet.model';
+import {Film} from '../film.model';
+import {Species} from '../species.model';
+import {Vehicle} from '../vehicle.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +20,22 @@ export class CardsMapper {
     people: {
       cardModel: Person,
       comparableAttributes: ['height', 'mass', 'films']
+    },
+    planets: {
+      cardModel: Planet,
+      comparableAttributes: ['rotationPeriod', 'orbitalPeriod', 'diameter', 'surfaceWater', 'population', 'residents', 'films']
+    },
+    films: {
+      cardModel: Film,
+      comparableAttributes: ['characters', 'planets', 'vehicles', 'species', 'starships']
+    },
+    species: {
+      cardModel: Species,
+      comparableAttributes: ['averageHeight', 'averageLifespan', 'people', 'films']
+    },
+    vehicles: {
+      cardModel: Vehicle,
+      comparableAttributes: ['costInCredits', 'length', 'crew', 'passengers', 'cargoCapacity', 'films']
     }
   };
 

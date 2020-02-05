@@ -3,7 +3,7 @@ import {CardsMapper} from './cards.mapper';
 import {Starship} from '../starship.model';
 
 describe('CardMapper', () => {
-  const cardTypes = ['starships', 'people'];
+  const cardTypes = ['starships', 'people', 'planets', 'films', 'species', 'vehicles'];
   const starshipAttributes = ['costInCredits', 'length', 'crew', 'passengers', 'cargoCapacity', 'MGLT', 'films'];
   let cardsMapper: CardsMapper;
 

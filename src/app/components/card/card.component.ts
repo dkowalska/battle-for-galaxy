@@ -35,6 +35,10 @@ export class CardComponent implements OnInit {
     return Object.keys(this.cardContent);
   }
 
+  getName(): string {
+    return this.cardContent['name'] ? this.cardContent['name'] : this.cardContent['title'];
+  }
+
   private updateCardData(round: Round) {
     if (round) {
       if (round.status === Status.IN_PROGRESS) {
