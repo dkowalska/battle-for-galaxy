@@ -3,24 +3,24 @@
        fxLayout="column"
        fxLayoutAlign="center">
     <mat-card class="card"
-              [ngClass]="winningCard ? 'card--success' : 'card--failure'"
+              [ngClass]="(showCardContent && cardContent && !roundInProgress) ? (winningCard ? 'card--success' : 'card--failure') : ''"
               [ngStyle.lt-md]="{'margin-bottom.rem': 0, 'margin-left.rem': 1, 'margin-top.rem': 1, 'margin-right.rem': 1}">
-      <div *ngIf="!showCardContent; else start"
+      <div *ngIf="showCardContent; else start"
            fxFlex="grow">
         <div *ngIf="!roundInProgress; else loading">
           <mat-card-header>
-            <mat-card-title class="card__title">Luke Skywalker</mat-card-title>
-            <mat-card-subtitle>cardType</mat-card-subtitle>
+            <mat-card-title [ngClass]="winningCard ? 'card__text--success' : 'card__text--failure'">
+              {{cardContent.name}}
+            </mat-card-title>
+            <mat-card-subtitle>{{cardType}}</mat-card-subtitle>
           </mat-card-header>
           <mat-divider></mat-divider>
           <mat-card-content class="card__content">
             <p [ngClass]="winningCard ? 'card__text--success' : 'card__text--failure'">
-              comparedAttribute: value
+              {{comparedAttribute}}: {{cardContent[comparedAttribute]}}
             </p>
             <ul class="card__list" fxHide.lt-md="true">
-              <li>key: value</li>
-              <li>key: value</li>
-              <li>key: value</li>
+              <li *ngFor="let key of getCardContentKeys()">{{key}}: {{cardContent[key]}}</li>
             </ul>
           </mat-card-content>
         </div>

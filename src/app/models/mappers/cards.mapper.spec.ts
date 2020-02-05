@@ -1,6 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 import {CardsMapper} from './cards.mapper';
-import {Starship} from './starship.model';
+import {Starship} from '../starship.model';
 
 describe('CardMapper', () => {
   const cardTypes = ['starships', 'people'];

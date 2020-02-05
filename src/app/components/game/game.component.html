@@ -7,13 +7,13 @@
     <div fxFlex="12%"
          fxLayout="row"
          fxLayoutAlign="center center">
-      <div class="title" [ngStyle.lt-md]="{'font-size.rem': 2}">Battle for the Galaxy</div>
+      <div class="game__title" [ngStyle.lt-md]="{'font-size.rem': 2}">Battle for the Galaxy</div>
     </div>
     <div fxFlex="grow"
          fxLayout="row"
          fxLayout.lt-md="column"
          fxLayoutGap="10px"
-         fxLayoutGap.lt-md="0">
+         fxLayoutGap.lt-md="5px">
       <div fxFlex="40%" fxFlex.lt-md="27%"><bftg-card playerNumber="1"></bftg-card></div>
       <div fxFlex="40%" fxFlex.lt-md="27%" fxFlexOrder="3" fxFlexOrder.lt-md="2"><bftg-card playerNumber="2"></bftg-card></div>
       <div fxFlexOrder="2"
@@ -24,17 +24,18 @@
            class="ml1 mr1">
         <div class="score-panel" [ngStyle.lt-md]="{'margin-bottom.rem': 1}">
           <div class="score-panel__title" [ngStyle.lt-md]="{'font-size.rem': 1}">SCORE</div>
-          <div class="score-panel__score" [ngStyle.lt-md]="{'font-size.rem': 2}">0 : 0</div>
+          <div class="score-panel__score" [ngStyle.lt-md]="{'font-size.rem': 2}">{{score[0]}} : {{score[1]}}</div>
         </div>
         <mat-form-field color="accent">
-          <mat-label>Select resource type</mat-label>
-          <mat-select [disabled]="roundInProgress">
-            <mat-option>random</mat-option>
-            <mat-option>people</mat-option>
+          <mat-label>Select card type</mat-label>
+          <mat-select [disabled]="roundInProgress" (selectionChange)="changeSelectedCardType($event.value)">
+            <mat-option *ngFor="let card of cardTypes" [value]="card">
+              {{card}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
-        <button (click)="resetGame()" mat-raised-button color="accent" [ngStyle]="{'margin-bottom.rem': 0.5}" [disabled]="roundInProgress">RESET GAME</button>
-        <button (click)="playRound()" mat-raised-button color="accent" [disabled]="roundInProgress">PLAY ROUND</button>
+        <button (click)="resetGame()" mat-raised-button color="accent" [ngStyle]="{'margin-bottom.rem': 0.5}" [disabled]="roundInProgress" class="control-panel__button--reset-game">RESET GAME</button>
+        <button (click)="playRound()" mat-raised-button color="accent" [disabled]="roundInProgress" class="control-panel__button--play-round">PLAY ROUND</button>
       </div>
     </div>
   </div>

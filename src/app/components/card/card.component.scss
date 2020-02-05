@@ -30,17 +30,13 @@
     padding: 0;
   }
 
-  &__title {
-    color: var(--accent);
-  }
-
   &__text {
     &--success {
-      color: var(--warn);
+      color: var(--accent);
     }
 
     &--failure {
-      color: var(--accent);
+      color: var(--warn);
     }
   }
 }
