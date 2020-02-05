@@ -1,7 +1,7 @@
-import {toNumberOrZero} from '../util/to-number';
 import {Card} from './card.model';
+import {toNumberOrZero} from '../util/to-number';
 
-export class Starship extends Card {
+export class Vehicle extends Card {
   name: string;
   model: string;
   manufacturer: string;
@@ -12,11 +12,9 @@ export class Starship extends Card {
   passengers: number;
   cargoCapacity: number;
   consumables: string;
-  starshipClass: string;
+  vehicleClass: string;
   pilots: number;
   films: number;
-  hyperdriveRating: string;
-  MGLT: number;
 
   deserialize(input: any): this {
     this.name = input.name;
@@ -29,11 +27,9 @@ export class Starship extends Card {
     this.passengers = toNumberOrZero(input.passengers);
     this.cargoCapacity = toNumberOrZero(input.cargo_capacity);
     this.consumables = input.consumables;
-    this.starshipClass = input.starship_class;
+    this.vehicleClass = input.vehicle_class;
     this.pilots = input.pilots.length;
     this.films = input.films.length;
-    this.hyperdriveRating = input.hyperdrive_rating;
-    this.MGLT = toNumberOrZero(input.MGLT);
     return this;
   }
 }

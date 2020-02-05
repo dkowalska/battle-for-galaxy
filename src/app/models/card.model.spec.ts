@@ -9,7 +9,7 @@ describe('Card', () => {
       const card = new Card().deserialize(json);
       // then
       expect(card instanceof Card).toBe(true);
-      expect(card.name).toEqual('testName');
+      expect(card['name']).toEqual('testName');
     });
   });
 });

@@ -40,9 +40,13 @@ export class GameService {
       .subscribe(
         (resources) => {
           if (resources) {
-            const comparedAttribute = this.getComparator(resourceType);
-            const result = GameService.compareResources(resources, comparedAttribute);
-            this.roundService.endRoundWithSuccess(new RoundData(resources, result, resourceType, comparedAttribute));
+            try {
+              const comparedAttribute = this.getComparator(resourceType);
+              const result = GameService.compareResources(resources, comparedAttribute);
+              this.roundService.endRoundWithSuccess(new RoundData(resources, result, resourceType, comparedAttribute));
+            } catch (e) {
+              this.roundService.endRoundWithFailure();
+            }
           } else {
             this.roundService.endRoundWithFailure();
           }

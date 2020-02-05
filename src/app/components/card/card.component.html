@@ -10,17 +10,17 @@
         <div *ngIf="!roundInProgress; else loading">
           <mat-card-header>
             <mat-card-title [ngClass]="winningCard ? 'card__text--success' : 'card__text--failure'">
-              {{cardContent.name}}
+              {{getName()}}
             </mat-card-title>
             <mat-card-subtitle>{{cardType}}</mat-card-subtitle>
           </mat-card-header>
           <mat-divider></mat-divider>
           <mat-card-content class="card__content">
             <p [ngClass]="winningCard ? 'card__text--success' : 'card__text--failure'">
-              {{comparedAttribute}}: {{cardContent[comparedAttribute]}}
+              {{comparedAttribute}}: {{cardContent[comparedAttribute] | unknown}}
             </p>
             <ul class="card__list" fxHide.lt-md="true">
-              <li *ngFor="let key of getCardContentKeys()">{{key}}: {{cardContent[key]}}</li>
+              <li *ngFor="let key of getCardContentKeys()">{{key}}: {{cardContent[key] | unknown}}</li>
             </ul>
           </mat-card-content>
         </div>
