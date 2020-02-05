@@ -12,6 +12,7 @@ import {Status} from '../../models/enums/status.enum';
 import {RoundData} from '../../models/round-data.model';
 import {StarshipsFactory} from '../../../test/starships.factory';
 import {Result} from '../../models/enums/result.enum';
+import {UnknownPipe} from '../../pipes/is-unknown.pipe';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -20,7 +21,10 @@ describe('CardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardComponent ],
+      declarations: [
+        CardComponent,
+        UnknownPipe
+      ],
       imports: [
         BrowserModule,
         BrowserAnimationsModule,

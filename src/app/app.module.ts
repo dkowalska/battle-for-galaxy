@@ -15,12 +15,14 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { UnknownPipe } from './pipes/is-unknown.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    CardComponent
+    CardComponent,
+    UnknownPipe
   ],
   imports: [
     BrowserModule,
